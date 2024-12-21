@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Music</title>
+        <link rel="stylesheet" href="style.css" />
+
+    </head>
+
+    <body>
+        <header>
+            <div id="name">202003210 황보담</div>
+            <h1>MUSIC</h1>
+            <p>당신의 순간을 음악으로 채우세요.</p><br>  
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#Mozart">Mozart</a></li>
+                <li><a href="#Beethoven">Beethoven</a></li>
+                <li><a href="#Chopin">Chopin</a></li>
+                <li><a href="">Buy</a></li>
+            </ul>
+        </nav>
+
+        <section id="search">  
+               <h3>검색</h3><br>
+               <hr><br>
+               찾고 있는 음악이 무엇인가요?<br><br>
+               <input type="text"  placeholder="제목으로 검색"> 
+               <input type="button" class="button1" value="검색"><br><br>
+        </section>
+
+        <section id="category">
+            <a>작곡가</a><br><br>
+            <hr><br>
+            <select>
+                <option value="Mozart">Mozart</option>
+                <option value="Beethoven">Beethoven</option> 
+                <option value="Chopin">Chopin</option>
+            </select>
+        </section>
+        
+        <!-- 첫 번째 섹션 -->
+        <section id="Mozart">
+            <h2>Mozart</h2>
+            <br>
+        
+            <section>
+                <a>Symphony - No.40 in G minor_ K550</a><br><br>
+                <img src="image/Mozart2.jpg" width="400"><br><br>
+                <form class="form-container">
+                    <button type="button" class="button1" onclick="toggleContent(this)">악보 구매하기</button>
+                    <div class="hidden-content" style="display: none;">
+                        <h2>Symphony - No.40 in G minor_ K550</h2><br>
+                        
+                        Instrument<br>
+                        <select class="instrument-select">
+                            <option value="Flute (이)가 장바구니에 담겼습니다.">Flute</option>
+                            <option value="Oboe (이)가 장바구니에 담겼습니다.">Oboe</option>
+                            <option value="Clarinet (이)가 장바구니에 담겼습니다.">Clarinet</option>
+                            <option value="Bassoon (이)가 장바구니에 담겼습니다.">Bassoon</option>
+                            <option value="French Horn (이)가 장바구니에 담겼습니다.">French Horn</option>
+                            <option value="String (이)가 장바구니에 담겼습니다.">String</option>
+                            <option value="Full Orchestra (이)가 장바구니에 담겼습니다.">Full Orchestra</option>
+                        </select>
+                        <br><br>
+                        <input type="button" class="button1" value="담기" onclick="getSelect(this)">
+                        <br><br>
+                        <hr>
+                        <h3 class="result"></h3>
+                    </div>
+                </form>
+            </section>
+        </section>
+        
+            <!-- 두 번째 섹션 -->
+            <section id="Beethoven">
+                <h2>Beethoven</h2>
+                <br>
+            <section>
+                <a>Adelaide_ Op.46</a><br><br>
+                <img src="image/beethoven.jpg" width="400"><br><br>
+                <form class="form-container">
+                    <button type="button" class="button1" onclick="toggleContent(this)">악보 구매하기</button>
+                    <div class="hidden-content" style="display: none;">
+                        <h2>Adelaide_ Op.46</h2><br>
+
+                        Instrument<br>
+                        <select class="instrument-select">
+                            <option value="Soprano (이)가 장바구니에 담겼습니다.">Soprano</option>
+                            <option value="Piano (이)가 장바구니에 담겼습니다.">Piano</option>
+                            
+                        </select>
+                        <br><br>
+                        <input type="button" class="button1" value="담기" onclick="getSelect(this)">
+                        <br><br>
+                        <hr>
+                        <h3 class="result"></h3>
+                    </div>
+                </form>
+            </section>
+        </section>
+
+        <!-- 세 번째 섹션 -->
+        <section id="Chopin">
+            <h2>Chopin</h2>
+            <br>
+            <section>
+                <a>Ballade - No.1_ Op.23</a><br><br>
+                <img src="image/chopin.jpg" width="400"><br><br>
+                <form class="form-container">
+                    <button type="button" class="button1" onclick="toggleContent(this)">악보 구매하기</button>
+                    <div class="hidden-content" style="display: none;">
+                        <h2>Ballade - No.1_ Op.23</h2><br>
+                        
+                        Instrument<br>
+                        <select class="instrument-select">
+
+                            <option value="Piano (이)가 장바구니에 담겼습니다.">Piano</option>
+                            
+                        </select>
+                        <br><br>
+                        <input type="button" class="button1" value="담기" onclick="getSelect(this)">
+                        <br><br>
+                        <hr>
+                        <h3 class="result"></h3>
+                    </div>
+                </form>
+            </section>
+        </section>
+
+            <script>
+                function toggleContent(button) {
+                    
+                    const hiddenContent = button.parentElement.querySelector('.hidden-content');
+                    if (hiddenContent.style.display === 'none' || hiddenContent.style.display === '') {
+                        hiddenContent.style.display = 'block';
+                        button.textContent = '취소';
+                    } else {
+                        hiddenContent.style.display = 'none';
+                        button.textContent = '악보 구매하기';
+                    }
+                }
+        
+                function getSelect(button) {
+                    
+                    const form = button.closest('form');
+                    const select = form.querySelector('.instrument-select');
+                    const result = form.querySelector('.result');
+                    const selectedValue = select.value;
+                    result.textContent = selectedValue;
+                }
+            </script>
+        </section>
+    </body>
+</html>
